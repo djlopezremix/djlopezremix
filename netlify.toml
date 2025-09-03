@@ -1,0 +1,10 @@
+# Netlify configuration for a static site
+[build]
+  publish = "."
+  command = ""
+
+# Redirect all 404s to index (optional for SPA-like behaviour)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DJ López Remix — El más feo</title>
+  <meta name="description" content="Página oficial de DJ López Remix. Booking, música, galería y redes." />
+  <link rel="preload" href="assets/cover.jpg" as="image" />
+  <style>
+    :root {
+      --primary:#ff00ff;
+      --accent:#00ffff;
+      --bg1:#000000;
+      --bg2:#1a0033;
+      --text:#ffffff;
+      --muted:#cccccc;
+      --card:#0d0d0f;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background: linear-gradient(180deg,var(--bg1),var(--bg2)); color:var(--text); font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity:.9; }
+    header.hero {
+      position: relative;
+      min-height: 78vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      overflow: hidden;
+      background: #000 url('assets/cover.jpg') center/cover no-repeat fixed;
+    }
+    header.hero::after {
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(1200px 600px at 50% 40%, rgba(255,0,255,.25), rgba(0,0,0,.75));
+      pointer-events:none;
+    }
+    .hero-inner { position: relative; z-index: 2; padding: 24px; }
+    .brand-logo { width: clamp(180px, 28vw, 360px); filter: drop-shadow(0 10px 25px rgba(255,0,255,.35)); }
+    .cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top: 18px; }
+    .btn {
+      display:inline-block; padding: 12px 20px; border-radius: 999px;
+      font-weight: 700; letter-spacing:.2px; border: 1px solid rgba(255,255,255,.15);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color:#000; text-shadow: none; box-shadow: 0 10px 25px rgba(255,0,255,.25);
+    }
+    nav.top {
+      position: sticky; top:0; z-index: 10;
+      display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap;
+      padding: 10px 16px; background: rgba(0,0,0,.6); backdrop-filter: blur(6px); border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    nav.top img { width: 42px; height: 42px; object-fit: contain; }
+    nav.top .lang { margin-left: auto; display:flex; align-items:center; gap:8px; }
+    nav.top select { padding:6px 10px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:#0b0b0d; color:#fff; }
+    section { padding: 60px 18px; max-width: 1100px; margin: 0 auto; }
+    h2 { font-size: clamp(24px, 3.5vw, 34px); margin: 0 0 14px; }
+    p.lead { color: var(--muted); max-width: 800px; margin: 0 auto 16px; }
+    .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:18px; }
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: 16px; padding:20px; }
+    footer { background:#0a0a0c; border-top:1px solid rgba(255,255,255,.08); padding: 26px; text-align:center; color: var(--muted);}
+    .socials { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:10px; }
+    .tag { font-size:12px; color:var(--muted);}
+    form { display:grid; gap:12px; max-width:720px; margin: 12px auto 0; }
+    input, textarea { width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.12); background:#0b0b0d; color:#fff; }
+    textarea { min-height: 120px; resize: vertical; }
+    .row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    @media (max-width:720px) { .row { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="top">
+    <img src="assets/logo.png" alt="DJ López Remix Logo" />
+    <a href="#bio" data-i18n="nav.bio">Bio</a>
+    <a href="#musica" data-i18n="nav.music">Música</a>
+    <a href="#galeria" data-i18n="nav.gallery">Galería</a>
+    <a href="#eventos" data-i18n="nav.events">Eventos</a>
+    <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+    <div class="lang">
+      <label for="lang"><span data-i18n="lang.label">Idioma</span>:</label>
+      <select id="lang" aria-label="language">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+    </div>
+  </nav>
+
+  <header class="hero" role="banner">
+    <div class="hero-inner">
+      <img class="brand-logo" src="assets/logo.png" alt="Logo DJ López Remix" />
+      <div class="cta">
+        <a class="btn" href="#musica" data-i18n="cta.listen">🎧 Escuchar música</a>
+        <a class="btn" href="#contacto" data-i18n="cta.booking">📩 Booking</a>
+      </div>
+      <div class="socials">
+        <a class="btn" href="https://www.instagram.com/djlopezremix?igsh=YWxhemxxbnptdXV3" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn" href="https://www.facebook.com/share/15pvgA7fwu/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+        <a class="btn" href="https://www.tiktok.com/@djlopezremix?_t=ZS-8zQNE5VMru3&_r=1" target="_blank" rel="noopener">TikTok</a>
+      </div>
+      <div class="socials">
+        <span class="tag">Instagram: <strong>@djlopezremix</strong></span>
+      </div>
+    </div>
+  </header>
+
+  <section id="bio">
+    <h2 data-i18n="bio.title">Sobre mí</h2>
+    <p class="lead" data-i18n="bio.text">DJ López Remix — “El más feo”. Mezcla Merengue, Bachata, Reggaeton, Dembow, Hip Hop, Trap, Cumbia, House y más. Con un show de alto impacto visual. Disponible para clubs, festivales y eventos privados en Canadá y el mundo.</p>
+    <div class="cards">
+      <div class="card">
+        <h3 data-i18n="bio.style.title">Estilo</h3>
+        <p data-i18n="bio.style.text">Urbano con toques electrónicos, remixes exclusivos y energía de discoteca.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="bio.services.title">Servicios</h3>
+        <p data-i18n="bio.services.text">Presentaciones en vivo, host de eventos, branding musical y contenido digital.</p>
+      </div>
+      <div class="card">
+        <h3 data-i18n="bio.location.title">Ubicación</h3>
+        <p data-i18n="bio.location.text">Base en Canadá. Disponibilidad para giras internacionales.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="musica">
+    <h2 data-i18n="music.title">Música</h2>
+    <p class="lead" data-i18n="music.text">Pon tus enlaces reales y los activo en los botones:</p>
+    <div class="cta">
+      <a class="btn" id="ytLink" href="https://youtube.com/@djlopezremix3955?si=wBEMtRgP_WgcBQ7Y" target="_blank" rel="noopener">YouTube</a>
+      <a class="btn" id="spLink" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify</a>
+      <a class="btn" id="scLink" href="https://on.soundcloud.com/3LgjXBQcNuCZ4EGefV" target="_blank" rel="noopener">SoundCloud</a>
+      <a class="btn" id="igLink" href="https://www.instagram.com/djlopezremix?igsh=YWxhemxxbnptdXV3" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  
+    <div class="cards" style="margin-top:16px;">
+      <div class="card" style="padding:0;">
+        <iframe width="100%" height="166" scrolling="no" frameborder="no"
+          src="https://w.soundcloud.com/player/?url=https://on.soundcloud.com/3LgjXBQcNuCZ4EGefV&color=%23ff00ff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+        </iframe>
+      </div>
+    </div>
+    <div class="tag" style="text-align:center;margin-top:6px;" data-i18n="player.unmute_hint">🔊 Haz clic en el ícono del audio en el reproductor para activar el sonido.</div>
+    <div class="tag" style="text-align:center;margin-top:8px;">      <label style="display:inline-flex;gap:8px;align-items:center;">        <input type="checkbox" id="smartPause" checked />        <span data-i18n="player.smartpause_label">Bloquear reproducción simultánea (pausar SoundCloud cuando suena YouTube).</span>      </label>    </div>
+
+  </section>
+
+  <section id="galeria">
+    <h2 data-i18n="gallery.title">Galería</h2>
+    <p class="lead" data-i18n="gallery.text">Algunas piezas de marca. Puedo añadir más imágenes cuando me las compartas.</p>
+    <div class="cards">
+      <div class="card"><img src="assets/logo.png" alt="Logo DJ López Remix" style="width:100%; height:auto;"/></div>
+      <div class="card"><img src="assets/cover.jpg" alt="Cover DJ López Remix" style="width:100%; height:auto;"/></div>
+    </div>
+  </section>
+
+  <section id="eventos">
+    <h2 data-i18n="events.title">Eventos</h2>
+    <p class="lead" data-i18n="events.text">Calendario próximo. Si me das fechas, las coloco aquí.</p>
+    <div class="cards">
+      <div class="card"><h3 data-i18n="events.card1.title">Club / Ciudad</h3><p data-i18n="events.card1.text">Fecha — Hora</p></div>
+      <div class="card"><h3 data-i18n="events.card2.title">Festival / Ciudad</h3><p data-i18n="events.card2.text">Fecha — Hora</p></div>
+      <div class="card"><h3 data-i18n="events.card3.title">Privado / Ciudad</h3><p data-i18n="events.card3.text">Fecha — Hora</p></div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2 data-i18n="contact.title">Booking & Contacto</h2>
+    <p class="lead" data-i18n="contact.text">Completa el formulario y me llega por correo.</p>
+<p class="tag"><strong>Política de reserva:</strong> Para confirmar la fecha se requiere un <strong>depósito del 50%</strong>. El resto se paga el día del evento.</p>
+    <div class="cards" style="margin-top:14px;">
+      <div class="card">
+        <h3 data-i18n="terms.title">Política de cancelación, reembolso y métodos de pago</h3>
+        <ul style="text-align:left; line-height:1.6;">
+          <li data-i18n="terms.deposit"><strong>Depósito:</strong> 50% para confirmar fecha (no transferible).</li>
+          <li data-i18n="terms.cancel.7">Eventos privados ≥ 7 días antes: 25% de reembolso.</li>
+          <li data-i18n="terms.cancel.3">Clubs: pago completo, no hay reembolso.</li>
+          <li data-i18n="terms.cancel.2">Cancelación &lt; 48 horas: no reembolsable.</li>
+          <li data-i18n="terms.methods"><strong>Métodos de pago:</strong> Interac e‑Transfer y efectivo.</li>
+          <li data-i18n="terms.receipt">Se envía confirmación y recibo por email al recibir el depósito.</li>
+          <li data-i18n="terms.weather"><strong>Clima:</strong> Si el evento se cancela por condiciones climáticas severas, se reprograma sin penalidad dentro de los 6 meses.</li>
+  <li data-i18n="terms.rider"><strong>Rider técnico:</strong> Sonido profesional, mesa DJ y electricidad estable requeridos. Si no se proveen, se aplican cargos de alquiler.</li>
+  <li data-i18n="terms.travel"><strong>Viáticos:</strong> Transporte y/o hospedaje pueden aplicarse según ciudad y horario.</li>
+</ul>
+      </div>
+    </div>
+
+    <form id="bookingForm">
+      <div class="row">
+        <input name="name" id="name" placeholder="Nombre" required aria-label="Nombre" />
+        <input name="email" id="email" type="email" placeholder="Email" required aria-label="Email" />
+      </div>
+      <div class="row">
+        <input name="date" id="date" type="date" placeholder="Fecha" aria-label="Fecha" />
+        <input name="city" id="city" placeholder="Ciudad / Lugar" aria-label="Ciudad o Lugar" />
+      </div>
+      <textarea name="message" id="message" placeholder="Mensaje (tipo de evento, horario, detalles)"></textarea>
+      <label style="display:flex;gap:8px;align-items:center;justify-content:center;"><input type="checkbox" id="deposit" required /> <span data-i18n="contact.deposit.confirm","terms.title":"Politique d’annulation, remboursement et modes de paiement","terms.deposit":"Acompte : 50% pour réserver la date (non transférable).","terms.cancel.7":"Événements privés ≥ 7 jours avant : remboursement de 25%.","terms.cancel.3":"Clubs : paiement intégral, aucun remboursement.","terms.cancel.2":"Annulation < 48 heures : non remboursable.","terms.methods":"Modes de paiement : Virement Interac et espèces.","terms.receipt":"Confirmation et reçu envoyés par email à réception de l’acompte.","terms.title":"Cancellation, refund & payment methods","terms.deposit":"Deposit: 50% to secure the date (non-transferable).","terms.cancel.7":"Private events ≥ 7 days prior: 25% refund.","terms.cancel.3":"Clubs: full payment, no refunds.","terms.cancel.2":"Cancellation < 48 hours: non‑refundable.","terms.methods":"Payment methods: Interac e‑Transfer and cash.","terms.receipt":"Confirmation and receipt sent by email upon deposit.","terms.title":"Política de cancelación, reembolso y métodos de pago","terms.deposit":"Depósito: 50% para confirmar fecha (no transferible).","terms.cancel.7":"Cancelación ≥ 7 días antes: reembolso completo del depósito (menos tarifas).","terms.cancel.3":"Cancelación 3–6 días antes: crédito del 100% del depósito válido por 12 meses.","terms.cancel.2":"Cancelación < 48 horas: el depósito no es reembolsable.","terms.methods":"Métodos de pago: Interac e‑Transfer, tarjeta (link de pago), PayPal, efectivo el día del evento.","terms.receipt":"Se envía confirmación y recibo por email al recibir el depósito.">Confirmo que entiendo el depósito del 50%.</span></label>
+<div class="cta">
+        <button class="btn" type="submit" data-i18n="contact.send">Enviar solicitud</button>
+        <a class="btn" href="https://wa.me/15146170137" target="_blank" rel="noopener" data-i18n="contact.whatsapp">WhatsApp</a>
+      </div>
+    </form>
+    <p class="tag" data-i18n="contact.privacy">Tu información se enviará por correo mediante tu app de email.</p>
+  </section>
+
+  <footer>
+    © 2025 DJ López Remix — El más feo
+  </footer>
+
+  <script>
+    // Simple i18n dictionary
+    const dict = {
+      es: {
+        "lang.label":"Idioma",
+        "nav.bio":"Bio","nav.music":"Música","nav.gallery":"Galería","nav.events":"Eventos","nav.contact":"Contacto",
+        "cta.listen":"🎧 Escuchar música","cta.booking":"📩 Booking",
+        "bio.title":"Sobre mí",
+        "bio.text":"DJ López Remix — “El más feo”. Mezcla Merengue, Bachata, Reggaeton, Dembow, Hip Hop, Trap, Cumbia, House y más. Con un show de alto impacto visual. Disponible para clubs, festivales y eventos privados en Canadá y el mundo.",
+        "bio.style.title":"Estilo","bio.style.text":"Urbano con toques electrónicos, remixes exclusivos y energía de discoteca.",
+        "bio.services.title":"Servicios","bio.services.text":"Presentaciones en vivo, host de eventos, branding musical y contenido digital.",
+        "bio.location.title":"Ubicación","bio.location.text":"Base en Canadá. Disponibilidad para giras internacionales.",
+        "music.title":"Música","music.text":"Pon tus enlaces reales y los activo en los botones:",
+        "gallery.title":"Galería","gallery.text":"Algunas piezas de marca. Puedo añadir más imágenes cuando me las compartas.",
+        "events.title":"Eventos","events.text":"Calendario próximo. Si me das fechas, las coloco aquí.",
+        "events.card1.title":"Club / Ciudad","events.card1.text":"Fecha — Hora",
+        "events.card2.title":"Festival / Ciudad","events.card2.text":"Fecha — Hora",
+        "events.card3.title":"Privado / Ciudad","events.card3.text":"Fecha — Hora",
+        "contact.title":"Booking & Contacto","contact.text":"Completa el formulario y me llega por correo.",
+        "contact.send":"Enviar solicitud","contact.whatsapp":"WhatsApp",
+        "contact.privacy":"Tu información se enviará por correo mediante tu app de email.","contact.deposit.msg":"Para confirmar la fecha se requiere un depósito del 50%.","contact.deposit.confirm","terms.title":"Politique d’annulation, remboursement et modes de paiement","terms.deposit":"Acompte : 50% pour réserver la date (non transférable).","terms.cancel.7":"Événements privés ≥ 7 jours avant : remboursement de 25%.","terms.cancel.3":"Clubs : paiement intégral, aucun remboursement.","terms.cancel.2":"Annulation < 48 heures : non remboursable.","terms.methods":"Modes de paiement : Virement Interac et espèces.","terms.receipt":"Confirmation et reçu envoyés par email à réception de l’acompte.","terms.title":"Cancellation, refund & payment methods","terms.deposit":"Deposit: 50% to secure the date (non-transferable).","terms.cancel.7":"Private events ≥ 7 days prior: 25% refund.","terms.cancel.3":"Clubs: full payment, no refunds.","terms.cancel.2":"Cancellation < 48 hours: non‑refundable.","terms.methods":"Payment methods: Interac e‑Transfer and cash.","terms.receipt":"Confirmation and receipt sent by email upon deposit.","terms.title":"Política de cancelación, reembolso y métodos de pago","terms.deposit":"Depósito: 50% para confirmar fecha (no transferible).","terms.cancel.7":"Cancelación ≥ 7 días antes: reembolso completo del depósito (menos tarifas).","terms.cancel.3":"Cancelación 3–6 días antes: crédito del 100% del depósito válido por 12 meses.","terms.cancel.2":"Cancelación < 48 horas: el depósito no es reembolsable.","terms.methods":"Métodos de pago: Interac e‑Transfer, tarjeta (link de pago), PayPal, efectivo el día del evento.","terms.receipt":"Se envía confirmación y recibo por email al recibir el depósito.":"Confirmo que entiendo el depósito del 50%."
+      },
+      en: {
+        "lang.label":"Language",
+        "nav.bio":"About","nav.music":"Music","nav.gallery":"Gallery","nav.events":"Events","nav.contact":"Contact",
+        "cta.listen":"🎧 Listen","cta.booking":"📩 Booking",
+        "bio.title":"About me",
+        "bio.text":"DJ López Remix — “The ugliest”. Mixes Merengue, Bachata, Reggaeton, Dembow, Hip Hop, Trap, Cumbia, House and more. High‑impact visual show. Available for clubs, festivals and private events in Canada and worldwide.",
+        "bio.style.title":"Style","bio.style.text":"Urban with electronic touches, exclusive remixes and nightclub energy.",
+        "bio.services.title":"Services","bio.services.text":"Live shows, event hosting, musical branding and digital content.",
+        "bio.location.title":"Location","bio.location.text":"Based in Canada. Available for international tours.",
+        "music.title":"Music","music.text":"Share your real links and I'll wire them to the buttons:",
+        "gallery.title":"Gallery","gallery.text":"A few brand pieces. I can add more images you share.",
+        "events.title":"Events","events.text":"Upcoming schedule. Send me dates and I'll add them here.",
+        "events.card1.title":"Club / City","events.card1.text":"Date — Time",
+        "events.card2.title":"Festival / City","events.card2.text":"Date — Time",
+        "events.card3.title":"Private / City","events.card3.text":"Date — Time",
+        "contact.title":"Booking & Contact","contact.text":"Fill the form and it will open your email app.",
+        "contact.send":"Send request","contact.whatsapp":"WhatsApp",
+        "contact.privacy":"Your info will be sent by email using your app.","contact.deposit.msg":"A 50% deposit is required to confirm the date.","contact.deposit.confirm","terms.title":"Politique d’annulation, remboursement et modes de paiement","terms.deposit":"Acompte : 50% pour réserver la date (non transférable).","terms.cancel.7":"Événements privés ≥ 7 jours avant : remboursement de 25%.","terms.cancel.3":"Clubs : paiement intégral, aucun remboursement.","terms.cancel.2":"Annulation < 48 heures : non remboursable.","terms.methods":"Modes de paiement : Virement Interac et espèces.","terms.receipt":"Confirmation et reçu envoyés par email à réception de l’acompte.","terms.title":"Cancellation, refund & payment methods","terms.deposit":"Deposit: 50% to secure the date (non-transferable).","terms.cancel.7":"Private events ≥ 7 days prior: 25% refund.","terms.cancel.3":"Clubs: full payment, no refunds.","terms.cancel.2":"Cancellation < 48 hours: non‑refundable.","terms.methods":"Payment methods: Interac e‑Transfer and cash.","terms.receipt":"Confirmation and receipt sent by email upon deposit.","terms.title":"Política de cancelación, reembolso y métodos de pago","terms.deposit":"Depósito: 50% para confirmar fecha (no transferible).","terms.cancel.7":"Cancelación ≥ 7 días antes: reembolso completo del depósito (menos tarifas).","terms.cancel.3":"Cancelación 3–6 días antes: crédito del 100% del depósito válido por 12 meses.","terms.cancel.2":"Cancelación < 48 horas: el depósito no es reembolsable.","terms.methods":"Métodos de pago: Interac e‑Transfer, tarjeta (link de pago), PayPal, efectivo el día del evento.","terms.receipt":"Se envía confirmación y recibo por email al recibir el depósito.":"I confirm I understand the 50% deposit."
+      },
+      fr: {
+        "lang.label":"Langue",
+        "nav.bio":"Bio","nav.music":"Musique","nav.gallery":"Galerie","nav.events":"Événements","nav.contact":"Contact",
+        "cta.listen":"🎧 Écouter","cta.booking":"📩 Booking",
+        "bio.title":"À propos",
+        "bio.text":"DJ López Remix — « Le plus moche ». Mixe Merengue, Bachata, Reggaeton, Dembow, Hip Hop, Trap, Cumbia, House et plus. Show visuel percutant. Disponible pour clubs, festivals et événements privés au Canada et dans le monde.",
+        "bio.style.title":"Style","bio.style.text":"Urbain avec des touches électroniques, remixes exclusifs et énergie club.",
+        "bio.services.title":"Services","bio.services.text":"Shows live, animation d’événements, branding musical et contenu digital.",
+        "bio.location.title":"Localisation","bio.location.text":"Basé au Canada. Disponible pour des tournées internationales.",
+        "music.title":"Musique","music.text":"Partage tes vrais liens et je les connecterai aux boutons :",
+        "gallery.title":"Galerie","gallery.text":"Quelques visuels de marque. J’ajouterai d’autres images que tu m’enverras.",
+        "events.title":"Événements","events.text":"Prochain calendrier. Envoie-moi les dates et je les ajoute ici.",
+        "events.card1.title":"Club / Ville","events.card1.text":"Date — Heure",
+        "events.card2.title":"Festival / Ville","events.card2.text":"Date — Heure",
+        "events.card3.title":"Privé / Ville","events.card3.text":"Date — Heure",
+        "contact.title":"Booking & Contact","contact.text":"Remplis le formulaire et ton application email s’ouvrira.",
+        "contact.send":"Envoyer la demande","contact.whatsapp":"WhatsApp",
+        "contact.privacy":"Tes informations seront envoyées par email via ton application.","contact.deposit.msg":"Un acompte de 50% est requis pour confirmer la date.","contact.deposit.confirm","terms.title":"Politique d’annulation, remboursement et modes de paiement","terms.deposit":"Acompte : 50% pour réserver la date (non transférable).","terms.cancel.7":"Événements privés ≥ 7 jours avant : remboursement de 25%.","terms.cancel.3":"Clubs : paiement intégral, aucun remboursement.","terms.cancel.2":"Annulation < 48 heures : non remboursable.","terms.methods":"Modes de paiement : Virement Interac et espèces.","terms.receipt":"Confirmation et reçu envoyés par email à réception de l’acompte.","terms.title":"Cancellation, refund & payment methods","terms.deposit":"Deposit: 50% to secure the date (non-transferable).","terms.cancel.7":"Private events ≥ 7 days prior: 25% refund.","terms.cancel.3":"Clubs: full payment, no refunds.","terms.cancel.2":"Cancellation < 48 hours: non‑refundable.","terms.methods":"Payment methods: Interac e‑Transfer and cash.","terms.receipt":"Confirmation and receipt sent by email upon deposit.","terms.title":"Política de cancelación, reembolso y métodos de pago","terms.deposit":"Depósito: 50% para confirmar fecha (no transferible).","terms.cancel.7":"Cancelación ≥ 7 días antes: reembolso completo del depósito (menos tarifas).","terms.cancel.3":"Cancelación 3–6 días antes: crédito del 100% del depósito válido por 12 meses.","terms.cancel.2":"Cancelación < 48 horas: el depósito no es reembolsable.","terms.methods":"Métodos de pago: Interac e‑Transfer, tarjeta (link de pago), PayPal, efectivo el día del evento.","terms.receipt":"Se envía confirmación y recibo por email al recibir el depósito.":"Je confirme avoir compris l’acompte de 50%."
+      }
+    };
+
+    function applyLang(lang) {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const val = dict[lang]?.[key];
+        if (val) el.textContent = val;
+      });
+      document.documentElement.lang = lang;
+    }
+
+    document.getElementById('lang').addEventListener('change', (e) => applyLang(e.target.value));
+    applyLang('es'); // default
+
+    // Booking form -> build mailto
+    const form = document.getElementById('bookingForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const date = document.getElementById('date').value;
+      const city = document.getElementById('city').value.trim();
+      const msg = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Booking request — DJ López Remix');
+      const body = encodeURIComponent(
+        'Nombre/Name: ' + name + '\n' +
+        'Email: ' + email + '\n' +
+        'Fecha/Date: ' + date + '\n' +
+        'Ciudad/City: ' + city + '\n' +
+        'Mensaje/Message:\n' + msg
+      );
+      window.location.href = 'mailto:djlopezremix@email.com?subject=' + subject + '&body=' + body;
+    });
+  </script>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <script>
+    let ytPlayer = null;
+    let scWidget = null;
+    let smartPauseEnabled = true;
+
+    function onYouTubeIframeAPIReady() {
+      const ytIframe = document.querySelector('iframe[src*="youtube.com/embed/videoseries"]');
+      if (ytIframe && window.YT) {
+        ytPlayer = new YT.Player(ytIframe, {
+          events: {
+            'onStateChange': onYTStateChange
+          }
+        });
+      }
+      const scIframe = document.querySelector('iframe[src*="w.soundcloud.com/player"]');
+      if (scIframe && window.SC) {
+        scWidget = SC.Widget(scIframe);
+        scWidget.bind(SC.Widget.Events.PLAY, function() {
+          if (smartPauseEnabled && ytPlayer && ytPlayer.getPlayerState && ytPlayer.getPlayerState() === 1) {
+            scWidget.pause();
+          }
+        });
+      }
+    }
+
+    function onYTStateChange(e) {
+      // No-op, but kept for extensibility (e.g., pause SC when YT starts, if desired)
+    }
+
+    document.addEventListener('change', function(e) {
+      if (e.target && e.target.id === 'smartPause') {
+        smartPauseEnabled = e.target.checked;
+      }
+    });
+  </script>
+
+</body>
+</html>
